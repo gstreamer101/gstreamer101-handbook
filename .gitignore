@@ -1,0 +1,62 @@
+# ── C 빌드 산출물 (GStreamer C 예제) ───────────────────────────
+*.o
+*.obj
+*.a
+*.lo
+*.la
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+# 실행 파일은 보통 확장자가 없으므로 예제별로 패턴 추가 가능
+# 예: tutorials/basic/basic-01-hello-world/hello-world
+
+# CMake / Meson / Autotools 빌드 디렉토리
+build/
+builddir/
+_build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.in
+.deps/
+.libs/
+
+# ── Python (PyGObject 예제) ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# ── GStreamer / 멀티미디어 산출물 ──────────────────────────────
+# 예제 실행 중 생성되는 캡처/녹화/덤프 파일 (원본 미디어는 별도 관리)
+*.tmp
+*.log
+*.dot          # GST_DEBUG_DUMP_DOT_DIR로 생성되는 파이프라인 그래프
+gst-debug-*.txt
+
+# ── 에디터 / IDE ───────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.clangd/
+compile_commands.json
+
+# ── OS 생성 파일 ───────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# ── oh-my-claudecode 로컬 상태 (커밋 대상 아님) ────────────────
+.omc/
