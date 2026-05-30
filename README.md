@@ -79,6 +79,14 @@ gst-launch-1.0 --version
 
 ---
 
+## 라이선스
+
+이 핸드북은 [Creative Commons Attribution-ShareAlike 4.0 International License](./LICENSE.md), 즉 **CC BY-SA 4.0**으로 배포합니다.
+
+자료를 공유하거나 수정해 사용할 수 있지만, 출처를 표시해야 하며 수정한 결과물도 같은 조건으로 공유해야 합니다.
+
+---
+
 ## 참고 링크
 
 - [GStreamer 공식 문서](https://gstreamer.freedesktop.org/documentation/)
