@@ -1,0 +1,38 @@
+name: Check Commit Messages
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-ai-coauthor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for AI Co-Authored-By
+        run: |
+          BASE=${{ github.event.pull_request.base.sha }}
+          HEAD=${{ github.event.pull_request.head.sha }}
+
+          FAILED=0
+          while IFS= read -r commit; do
+            MSG=$(git log --format=%B -n 1 "$commit")
+            if echo "$MSG" | grep -iE "Co-Authored-By:.*(Claude|Codex|anthropic\.com|openai\.com)" > /dev/null; then
+              echo "❌ 거부된 커밋: $commit"
+              echo "   사유: AI Co-Authored-By 트레일러 포함"
+              echo "   메시지: $(echo "$MSG" | tail -5)"
+              FAILED=1
+            fi
+          done < <(git log --format=%H "$BASE..$HEAD")
+
+          if [ "$FAILED" -eq 1 ]; then
+            echo ""
+            echo "AI Co-Authored-By 트레일러가 포함된 커밋이 있습니다."
+            exit 1
+          fi
+
+          echo "✅ 모든 커밋 메시지 검사 통과"
