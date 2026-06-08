@@ -92,3 +92,4 @@ gst-launch-1.0 --version
 - [GStreamer 공식 문서](https://gstreamer.freedesktop.org/documentation/)
 - [Basic Tutorial](https://gstreamer.freedesktop.org/documentation/tutorials/basic/index.html)
 - [핵심 개념(Foundations)](https://gstreamer.freedesktop.org/documentation/application-development/introduction/index.html)
+
